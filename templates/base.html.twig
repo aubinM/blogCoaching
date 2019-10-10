@@ -9,9 +9,10 @@
         <title>Progressus - Free business bootstrap template by GetTemplate</title>
 
         <link rel="shortcut icon" href="assets/images/gt_favicon.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link
         rel="stylesheet" href="{{ asset('assets/css/fontawesome/all.min.css') }}">
 
@@ -20,61 +21,45 @@
 
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-                                                                	<script src="assets/js/html5shiv.js"></script>
-                                                                	<script src="assets/js/respond.min.js"></script>
-                                                                	<![endif]-->
     </head>
     <body class="home">
-        {% block sidebar %}
+        {% block navbar %}
             <!-- Fixed navbar -->
-            <div class="navbar navbar-inverse navbar-fixed-top headroom">
-                <div
-                    class="container">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar" style="transition: top 0.3s;background-color: #000000;">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-dumbbell" style="font-size: 35px;color: White;"> </i>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <!-- Button for smallest screens -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{{ path('index')}}">
-                        <i class="fas fa-dumbbell" style="font-size: 50px;position:relative;bottom:10px;"></i>
-                    </a>
-
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav pull-right">
-                            <li>
-                                <a href="{{ path('index')}}">Acceuil</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('about')}}">A propos</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plus de pages
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ path('more_pages_left')}}">Left Sidebar</a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="{{ path('more_pages_right')}}">Right Sidebar</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="{{ path('contact')}}">Contact</a>
-                            </li>
-                            <li>
-                                <a class="btn" href="{{ path('signin')}}">Connexion / S'inscrire</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--/.nav-collapse -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" style="color: White;" href="{{ path('index')}}">Acceuil
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: White;" href="{{ path('about')}}">A propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: White;" href="{{ path('contact')}}">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" style="color: White;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Plus
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" style="color: White;" href="{{ path('more_pages_left')}}">sidebar left</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" style="color: White;" href="{{ path('more_pages_right')}}">sidebar right</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <a class="btn btn-light" href="{{ path('signin')}}">Connexion / S'inscrire</a>
                 </div>
-            </div>
+            </nav>
             <!-- /.navbar -->
         {% endblock %}
         {% block content %}{% endblock %}
@@ -163,12 +148,22 @@
         {% endblock %}
         {% block javascripts %}
             <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-            <script src="{{ asset('http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') }}"></script>
-            <script src="{{ asset('http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js') }}"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
             <script src="{{ asset('assets/js/headroom.min.js') }}"></script>
             <script src="{{ asset('assets/js/jQuery.headroom.min.js') }}"></script>
             <script src="{{ asset('assets/js/template.js') }}"></script>
             <script src="{{ asset('assets/js/all.min.js') }}"></script>
+            <script>
+                var prevScrollpos = window.pageYOffset;
+                window.onscroll = function () {
+                    var currentScrollPos = window.pageYOffset;
+                    if (prevScrollpos > currentScrollPos) {
+                        document.getElementById("navbar").style.top = "0";
+                    } else {
+                        document.getElementById("navbar").style.top = "-65px";
+                    } prevScrollpos = currentScrollPos;
+                }
+            </script>
         {% endblock %}
     </body>
 </html>
