@@ -9,10 +9,13 @@
         <title>Progressus - Free business bootstrap template by GetTemplate</title>
 
         <link rel="shortcut icon" href="assets/images/gt_favicon.png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript.util/0.12.12/javascript.util.min.js"></script>
 
         <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link
         rel="stylesheet" href="{{ asset('assets/css/fontawesome/all.min.css') }}">
 
@@ -22,12 +25,12 @@
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
     </head>
-    <body class="home">
+    <body>
         {% block navbar %}
             <!-- Fixed navbar -->
             <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar" style="transition: top 0.3s;background-color: #000000;">
                 <a class="navbar-brand" href="#">
-                    <i class="fas fa-dumbbell" style="font-size: 35px;color: White;"> </i>
+                    <i class="fas fa-dumbbell" style="font-size: 35px;color: White;"></i>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -46,6 +49,9 @@
                         <li class="nav-item">
                             <a class="nav-link" style="color: White;" href="{{ path('contact')}}">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: White;" href="#">Publications</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" style="color: White;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Plus
@@ -60,6 +66,8 @@
                     <a class="btn btn-light" href="{{ path('signin')}}">Connexion / S'inscrire</a>
                 </div>
             </nav>
+            <br>
+            <br>
             <!-- /.navbar -->
         {% endblock %}
         {% block content %}{% endblock %}
@@ -73,8 +81,8 @@
                             <div class="col-md-3 widget">
                                 <h3 class="widget-title">Contact</h3>
                                 <div class="widget-body">
-                                    <p>+234 23 9873237<br>
-                                        <a href="mailto:#">some.email@somewhere.com</a><br>
+                                    <p>06 10 10 10 10<br>
+                                        <a href="mailto:#">linklafayen@gmail.com</a><br>
                                         <br>
                                         234 Hidden Pond Road, Ashland City, TN 37015
                                     </p>
@@ -82,7 +90,7 @@
                             </div>
 
                             <div class="col-md-3 widget">
-                                <h3 class="widget-title">Follow me</h3>
+                                <h3 class="widget-title">Me suivre</h3>
                                 <div class="widget-body">
                                     <p class="follow-me-icons">
                                         <a href="">
@@ -115,13 +123,13 @@
                             <div class="col-md-6 widget">
                                 <div class="widget-body">
                                     <p class="simplenav">
-                                        <a href="#">Home</a>
+                                        <a href="{{ path('index')}}">Acceuil</a>
                                         |
-                                        <a href="about.html">About</a>
+                                        <a href="{{ path('about')}}">A propos</a>
                                         |
                                         <a href="sidebar-right.html">Sidebar</a>
                                         |
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{{ path('contact')}}">Contact</a>
                                         |
                                         <b>
                                             <a href="signup.html">Sign up</a>
@@ -133,8 +141,8 @@
                             <div class="col-md-6 widget">
                                 <div class="widget-body">
                                     <p class="text-right">
-                                        Copyright &copy; 2014, Your name. Designed by
-                                        <a href="http://gettemplate.com/" rel="designer">gettemplate</a>
+                                        Copyright &copy; 2019, Spehner Bryan. Designed by
+                                        Mathieu Aubin
                                     </p>
                                 </div>
                             </div>
